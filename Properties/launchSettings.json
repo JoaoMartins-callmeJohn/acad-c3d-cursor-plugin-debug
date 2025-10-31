@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "AutoCAD": {
+      "commandName": "Executable",
+      "executablePath": "$(AutoCADPath)\\acad.exe",
+      "commandLineArgs": "/nologo",
+      "nativeDebugging": false
+    },
+    "Civil3D-Metric": {
+      "commandName": "Executable",
+      "executablePath": "$(AutoCADPath)\\acad.exe",
+      "commandLineArgs": "/ld \"$(AutoCADPath)\\C3D\\AecBase.dbx\" /p \"<<C3D_Metric>>\" /product C3D /language en-US",
+      "nativeDebugging": false
+    },
+    "Civil3D-Imperial": {
+      "commandName": "Executable",
+      "executablePath": "$(AutoCADPath)\\acad.exe",
+      "commandLineArgs": "/ld \"$(AutoCADPath)\\C3D\\AecBase.dbx\" /p \"<<C3D_Imperial>>\" /product C3D /language en-US",
+      "nativeDebugging": false
+    }
+  }
+}

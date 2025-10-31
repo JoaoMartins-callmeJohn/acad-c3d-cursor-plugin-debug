@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <OutputType>Library</OutputType>
+    <RootNamespace>AutoCADPlugin</RootNamespace>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <!-- Edit these paths to match your AutoCAD installation -->
+    <AutoCADPath>C:\Program Files\Autodesk\AutoCAD 2026</AutoCADPath>
+    
+    <!-- For Civil 3D, uncomment and edit this path -->
+    <!-- <Civil3DPath>C:\Program Files\Autodesk\AutoCAD 2026\C3D</Civil3DPath> -->
+    
+    <!-- ObjectARX SDK path (optional, if you have it locally) -->
+    <!-- <ArxSdkPath>D:\ArxSDKs\arx2025</ArxSdkPath> -->
+    
+    <AssemblySearchPaths>$(AutoCADPath);$(Civil3DPath);$(ArxSdkPath)\inc\;$(AssemblySearchPaths)</AssemblySearchPaths>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+  </PropertyGroup>
+  
+  <ItemGroup Condition=" '$(UsingMicrosoftNETSdk)' == 'true' or '$(CLRSupport)' == 'NetCore' ">
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- AutoCAD Core References -->
+    <Reference Include="acdbmgd">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AutoCADPath)\acdbmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="acmgd">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AutoCADPath)\acmgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="accoremgd">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AutoCADPath)\accoremgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    
+    <!-- Civil 3D References (uncomment if needed) -->
+    <!--
+    <Reference Include="AecBaseMgd">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(AutoCADPath)\ACA\AecBaseMgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AeccDbMgd">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>$(Civil3DPath)\AeccDbMgd.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    -->
+  </ItemGroup>
+</Project>
