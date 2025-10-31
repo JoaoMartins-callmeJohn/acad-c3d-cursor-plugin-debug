@@ -5,15 +5,15 @@ A minimal .NET 8 class library template for developing AutoCAD/Civil 3D plugins 
 ## Prerequisites
 
 - .NET 8.0 SDK or later
-- AutoCAD 2025 (or your version)
+- AutoCAD 2025/2026
 - Visual Studio Code with C# extension or Cursor IDE
-- (Optional) Civil 3D 2025 for Civil 3D development
+- (Optional) Civil 3D 2025/2026 for Civil 3D development
 
 ## Quick Setup
 
 ### 1. Configure AutoCAD Paths
 
-You need to update the AutoCAD path in **two locations**:
+You need to **update the AutoCAD path**:
 
 #### In `AutoCADPlugin.csproj` (for assembly references):
 ```xml
@@ -43,7 +43,7 @@ The DLL will be created in `bin\Debug\AutoCADPlugin.dll`
 ### 3. Debug in Cursor/VS Code
 
 1. Set breakpoints in `Commands.cs` (e.g., in the `HelloCommand` method)
-2. Start AutoCAD manually
+2. Start AutoCAD or Civil 3D manually
 3. In Cursor/VS Code, press `F5` to attach debugger
 4. Select the `acad.exe` process when prompted
 5. In AutoCAD, type `NETLOAD` and browse to `bin\Debug\AutoCADPlugin.dll`
@@ -115,17 +115,6 @@ public void MyCommand()
 
 1. Update the `<AutoCADPath>` in the project file
 2. Ensure the AutoCAD .NET API version matches your target version
-3. For older versions, you might need to change `<TargetFramework>` to `net48` or `net472`
-
-### Loading Plugin Automatically
-
-To auto-load your plugin when AutoCAD starts:
-
-1. Create an `acad.lsp` file in a support path
-2. Add: `(command "NETLOAD" "C:\\path\\to\\your\\AutoCADPlugin.dll")`
-
-Or use the Registry (for deployment):
-- Add registry key under `HKEY_CURRENT_USER\Software\Autodesk\AutoCAD\R25.0\ACAD-6101:409\Applications`
 
 ## Troubleshooting
 
@@ -152,4 +141,9 @@ Or use the Registry (for deployment):
 
 ## License
 
-This template is provided as-is for educational and development purposes.
+This sample is licensed under the terms of the [MIT License](http://opensource.org/licenses/MIT). Please see the [LICENSE](LICENSE) file for full details.
+
+## Written by
+
+João Martins [in/jpornelas
+](https://www.linkedin.com/in/jpornelas/), [Autodesk Platform Services](http://aps.autodesk.com)
