@@ -4,7 +4,8 @@
         {
             "name": "Attach to AutoCAD",
             "type": "coreclr",
-            "request": "attach"
+            "request": "attach",
+            "preLaunchTask": "build"
         }
     ],
     "compounds": []
