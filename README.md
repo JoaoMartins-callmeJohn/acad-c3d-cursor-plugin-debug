@@ -1,6 +1,7 @@
 # AutoCAD .NET Plugin Template
 
 A minimal .NET 8 class library template for developing AutoCAD/Civil 3D plugins with debugging support in Visual Studio Code with Cursor.
+This is based on the [AutoCAD .NET Wizards](https://github.com/ADN-DevTech/AutoCAD-Net-Wizards) template written by [Madhukar Moogala](https://github.com/MadhukarMoogala)
 
 ## Prerequisites
 
