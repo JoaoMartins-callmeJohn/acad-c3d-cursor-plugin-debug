@@ -5,6 +5,27 @@
             "name": "Attach to AutoCAD",
             "type": "coreclr",
             "request": "attach",
+            "processName": "acad.exe",
+            "justMyCode": false,
+            "requireExactSource": false,
+            "symbolOptions": {
+                "searchPaths": ["${workspaceFolder}/bin/Debug"],
+                "searchMicrosoftSymbolServer": false,
+                "searchNuGetOrgSymbolServer": false
+            },
+            "preLaunchTask": "build"
+        },
+        {
+            "name": "Attach to AutoCAD (with picker)",
+            "type": "coreclr",
+            "request": "attach",
+            "justMyCode": false,
+            "requireExactSource": false,
+            "symbolOptions": {
+                "searchPaths": ["${workspaceFolder}/bin/Debug"],
+                "searchMicrosoftSymbolServer": false,
+                "searchNuGetOrgSymbolServer": false
+            },
             "preLaunchTask": "build"
         }
     ],
